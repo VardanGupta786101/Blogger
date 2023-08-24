@@ -1,0 +1,14 @@
+
+<!-- view.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ blog.title }}</h2>
+  <p>{{ blog.content }}</p>
+  <p>Author: {{ blog.author.username }}</p>
+  <p>Published: {{ blog.publish_time }}</p>
+  {% if is_author %}
+    <a href="{% url 'edit_blog' blog_id=blog.id %}">Edit</a>
+    <a href="{% url 'delete_blog' blog_id=blog.id %}">Delete</a>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">Blog List</h1>
+        <p class="lead">Check out our latest blog posts.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        {% for blog in blogs %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ blog.title }}</h5>
+                    <p class="card-text">{{ blog.content | truncatewords:30 }}</p>
+                    <a href="{% url 'view_blog' blog_id=blog.id %}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

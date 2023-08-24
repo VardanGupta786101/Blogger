@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Search Results</h2>
+        <p>Search Query: "{{ query }}"</p>
+        <ul class="list-group">
+            {% for blog in blogs %}
+            <li class="list-group-item">
+                <a href="{% url 'view_blog' blog_id=blog.id %}">{{ blog.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

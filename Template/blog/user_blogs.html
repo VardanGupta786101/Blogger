@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ user.username }}'s Blogs</h2>
+    <ul class="list-group">
+        {% for blog in blogs %}
+        <li class="list-group-item">
+            <a href="{% url 'view_blog' blog_id=blog.id %}">{{ blog.title }}</a>
+            <p>{{ blog.content | truncatewords:20 }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

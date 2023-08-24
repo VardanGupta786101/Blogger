@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Blog{% endblock %}
+
+{% block content %}
+  
+  <div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">Create a New Blog</h1>
+        <p class="lead">Share your thoughts and ideas with the world.</p>
+    </div>
+
+    <div class="container mt-4">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Create Blog</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
